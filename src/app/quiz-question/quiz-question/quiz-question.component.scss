@@ -1,0 +1,27 @@
+.bg-image{
+    background: url('../../../assets/images/bg-home1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+   
+}
+.mat-card{
+    // // width: 40%;
+    background-color: #ffffffe8;
+}
+.mat-error{
+    float: right;
+    font-size: 14px;
+}
+h1{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.questionList{
+    font-size: 14px;
+    padding: 5px;
+}

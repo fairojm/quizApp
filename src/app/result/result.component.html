@@ -1,0 +1,10 @@
+<div class="large-bold">Thank you for taking the test {{testReport.student_name}}</div>
+<div class="normal">Total Questions: 10</div>
+<div class="normal">Total Correct answers : {{testReport.correct_question.length}}</div>
+<div class="normal">Total Wrong answers : {{testReport.wrong_question.length}}</div>
+<div class="normal">Time taken to complete : {{testReport.tot_time_taken.hours.digit1}}{{testReport.tot_time_taken.hours.digit2}} : {{testReport.tot_time_taken.minutes.digit1}}{{testReport.tot_time_taken.minutes.digit2}} : {{testReport.tot_time_taken.seconds.digit1}}{{testReport.tot_time_taken.seconds.digit2}}</div>
+<div class="normal">Result : {{testReport.result}}</div>
+<div class="large-bold">Visit again and improve your knowledge</div>
+<div align="end">
+<button mat-raised-button mat-dialog-close>Ok</button>
+</div>

@@ -1,0 +1,34 @@
+<!-- <img src="assets/images/bg-home.jpg" width="100%" height="100%" style="object-fit: cover;"/> -->
+<div class="bg-image">
+</div>
+<!-- <div style="height: 100%;"> -->
+
+<div fxLayout="row"  style="height: 100%;" fxLayoutAlign="center center">
+    <mat-card fxFlex="50%" fxFlex.xs=90%>
+        <mat-card-header fxLayoutAlign="center">
+            <mat-card-title><h1 style="color: #694db7;">Welcome to My Quiz</h1></mat-card-title>
+        </mat-card-header><br/>
+        <mat-card-content>
+            <form [formGroup]="quizDetailsFormGroup"  fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap.xs="0" fxLayoutGap="10%">
+            <mat-form-field appearance="outline" fxFlex="40" fxFlex.xs="100">
+                <mat-label>Select Category</mat-label>
+                <mat-select formControlName="category_id">
+                    <mat-option>Select</mat-option>
+                    <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</mat-option>
+                  
+                </mat-select>
+                <mat-error *ngIf="quizDetailsFormGroup.get('category_id').hasError('required')">Category required</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="40" fxFlex.xs="100">
+                <mat-label>Name</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="student_name"/>
+              <mat-error *ngIf="quizDetailsFormGroup.get('student_name').hasError('required')">Name required</mat-error>
+            </mat-form-field>
+        </form>
+        </mat-card-content>
+        <mat-card-action fxLayoutAlign="flex-end">
+            <button mat-raised-button color="primary" (click)="startQuizFun()">Start Quiz</button>
+        </mat-card-action>
+    </mat-card>
+</div>
+<!-- </div> -->
