@@ -1,0 +1,13 @@
+<div fxLayout="row wrap" *ngIf="currQuestion.all_answers">
+<mat-radio-group color="primary" [formControl]="questionControl" (change)="radioChange($event.value)">
+    <span *ngFor="let item of currQuestion.all_answers">
+    <mat-radio-button [value]="item"><span class="radio-label"
+        [ngClass] = "{'correct': item === currQuestion.correct_answer && currQuestion.selected_option,
+    'wrong':item != currQuestion.correct_answer && item == currQuestion.selected_option}">{{item | decodeHtmlString}}</span>
+    <mat-icon *ngIf="item != currQuestion.correct_answer && item == currQuestion.selected_option" style="color: red;">close</mat-icon>
+    <mat-icon *ngIf="item === currQuestion.correct_answer &&  currQuestion.selected_option" style="color: greenyellow;">check</mat-icon>
+</mat-radio-button>
+   
+</span>
+</mat-radio-group>
+</div>

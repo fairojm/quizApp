@@ -1,0 +1,45 @@
+<div *ngIf="!currQuestion" fxLayout="row" style="width: 100%;height: 100%;" fxLayoutAlign="center center">
+    <h1 fxLayoutAlign="center center"> Loading ...</h1>
+</div>
+<div fxLayout="row" fxLayout.xs="column" style="width: 100%;height: 100%;" fxLayoutAlign="space-evenly center" class="bg-image" *ngIf="currQuestion">
+    <!-- <div fxLayout="row">
+    <mat-card class="left-panel">
+       <mat-card-content>
+           <div *ngFor="let item of wholeQuestions">
+               <p class="questionList">Question {{item.question_index+1}}</p>
+           </div>
+       </mat-card-content>
+    </mat-card>
+    </div> -->
+    <div fxLayout="row" fxLayoutAlign="center" fxFlex="90" fxFlex.xs="90">
+        <mat-card fxLayout="column"  fxFlex="90"  fxFlex.xs="100" fxLayoutAlign.xs="center" >
+            <mat-card-header>
+                <mat-card-subtitle>
+                    Question {{currQuestion.question_index+1}} of {{wholeQuestions.length}}
+                </mat-card-subtitle>
+                <mat-card-title>
+                   <h1 #question_name>{{currQuestion.question | decodeHtmlString}}</h1>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- <div fxLayout="column"> -->
+                <app-question-control [currQuestion]="currQuestion" (answer) = "selectedAnswerOption($event)"></app-question-control>
+            <!-- </div> -->
+            </mat-card-content>
+            <mat-card-action fxLayoutAlign="flex-end">
+                <button [disabled]="!currQuestion.selected_option" *ngIf="currQuestion.question_index < wholeQuestions.length-1" mat-raised-button color="primary" (click) = "gotoQuestion(currQuestion.question_index+1)">Next</button>
+                <button *ngIf="currQuestion.question_index == wholeQuestions.length-1" mat-raised-button color="primary" (click) = "submitTest()">Submit</button>
+            </mat-card-action>
+        </mat-card>
+     
+    </div>
+    <div fxLayout="row"  fxLayoutAlign="flex-end">
+        <mat-card class="right-panel" fxLayout.xs="row">
+            <p><mat-icon>category</mat-icon><span [ngStyle.xs] = "{'display':'none'}"> Category : </span>{{currQuestion.category}}  | &nbsp;&nbsp; &nbsp;&nbsp;</p>
+            <p> <mat-icon>question_answer</mat-icon><span [ngStyle.xs] = "{'display':'none'}"> Total Question : </span>10  |   &nbsp;&nbsp; &nbsp;&nbsp; </p>
+            <p *ngIf="display_timer.hours.hasOwnProperty('digit1')"><mat-icon>timer</mat-icon><span [ngStyle.xs] = "{'display':'none'}">
+                 Time taken :</span>{{display_timer.hours.digit1}}{{display_timer.hours.digit2}} : {{display_timer.minutes.digit1}}{{display_timer.minutes.digit2}} : {{display_timer.seconds.digit1}}{{display_timer.seconds.digit2}}</p>
+        </mat-card>
+    </div>
+</div>
+
