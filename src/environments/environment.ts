@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://cors-anywhere.herokuapp.com/https://opentdb.com/'
+  // apiUrl: 'https://cors-anywhere.herokuapp.com/https://opentdb.com/'
+  apiUrl:'https://opentdb.com/'
 };
 
 /*

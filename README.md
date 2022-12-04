@@ -1,8 +1,16 @@
-# FaiQuizApp check1
+# FaiQuizApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+This is a simple angular project quiz app which uses rest API to generate a questions and given the answer at each questions.
 
-## Development server
+## Working Demo : https://fairojm.github.io/quizApp/
+
+## Running locally
+
+Clone the repo
+Install the packages through NPM
+```
+npm install
+```
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
